@@ -43,3 +43,97 @@ begin
       end;
   writeln(s1);
 end.
+
+Задание 3.
+
+program shifr;
+const s='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+var x:integer; s1:string;
+begin
+  writeln('введите строку');
+  readln(s1);
+  writeln('введите шаг шифра');
+  readln(x);
+  for var i:=1 to s1.Length do
+    for var i1:=1 to s.Length do
+      if s[i1] = s1[i] then
+      begin
+        if i1+x<=s.Length then
+        begin
+          s1[i] := s[i1+x];
+          break;
+        end
+        else
+          s1[i] := s[i1+x-s.Length]
+      end;
+  writeln(s1);
+end.
+
+Задание 4.
+
+program shifr;
+const s='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+var x:integer; s1:string;
+begin
+  writeln('введите строку');
+  readln(s1);
+  writeln('введите шаг дешифратора');
+  readln(x);
+  for var i:=1 to s1.Length do
+    for var i1:=1 to s.Length do
+      if s[i1] = s1[i] then
+      begin
+        if i1-x>1 then
+        begin
+          s1[i] := s[i1-x];
+          break;
+        end
+        else
+          s1[i] := s[i1-x-s.Length]
+      end;
+  writeln(s1);
+end.
+
+Задание 5.
+
+program shifr1;
+const s='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя';
+var x,h:integer; s1:string;
+begin
+  writeln('введите строку');
+  readln(s1);
+  writeln('введите шифр в виде цифры');
+  readln(x);
+  for var i:=1 to s1.Length do
+    for var i1:=1 to s.Length do
+      if s[i1] = s1[i] then
+      begin
+          if x>=0 then
+          begin
+            if i1+x<=s.Length then
+            begin
+              s1[i] := s[i1+x];
+              break;
+            end
+            else
+            begin
+              s1[i] := s[i1+x-s.Length];
+            end
+          end
+          else
+          begin
+            if i1+x>1 then
+            begin
+              s1[i] := s[i1+x];
+              break;
+            end
+            else
+            begin
+              s1[i] := s[i1+x+s.Length];
+            end
+          end;
+      end;
+  writeln('зашифрованная строка');
+  writeln(s1);
+end.
+
