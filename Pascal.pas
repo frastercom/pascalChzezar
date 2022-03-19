@@ -199,6 +199,6 @@ begin
   readln(x);
 
   for i:=1 to s.Length do
-      s[i]:=chr(ord(s[i])-x);
+      s[i]:=chr(ord(s[i])+x);
   writeln(s);
 end.
